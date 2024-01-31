@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../core/localization/repositories/localization.dart';
+import '../repositories/localization.dart';
 
 class TranslatedText extends StatelessWidget {
   final String translationKey;
+  final TextStyle textStyle;
 
-  const TranslatedText({Key? key, required this.translationKey}) : super(key: key);
+  const TranslatedText({
+    Key? key,
+    required this.translationKey,
+    required this.textStyle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class TranslatedText extends StatelessWidget {
 
     return Text(
       translatedText ?? '', // Handle null value gracefully
-      style: TextStyle(),
+      style: textStyle,
     );
   }
 }

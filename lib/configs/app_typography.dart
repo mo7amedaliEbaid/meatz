@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../core/constants/strings.dart';
 import 'app_dimensions.dart';
-import 'core_theme.dart';
 
-class AppText {
+final class AppText {
   static TextStyle? btn;
 
   // Headings
@@ -28,7 +28,11 @@ class AppText {
 
   static init() {
     const b = FontWeight.bold;
-    const baseStyle = TextStyle(fontFamily: fontFamily);
+    const baseStyle = TextStyle(
+      fontFamily: AppStrings.fontFamily,
+      wordSpacing: 1,
+      color: Colors.black,
+    );
 
     h1 = baseStyle.copyWith(fontSize: AppDimensions.font(12.0));
     h1b = h1!.copyWith(fontWeight: b);

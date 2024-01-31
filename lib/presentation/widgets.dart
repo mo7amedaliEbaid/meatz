@@ -1,1 +1,1 @@
-export 'widgets/translated_text.dart';
+export 'widgets/custom_elevated_button.dart';
