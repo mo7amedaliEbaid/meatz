@@ -43,6 +43,11 @@ dependencies:
   equatable:
   flutter_svg:
   shared_preferences:
+  hooks_riverpod:
+  riverpod_annotation:
+  flutter_hooks:
+  freezed_annotation:
+  json_annotation:
 
 dev_dependencies:
   flutter_test:
