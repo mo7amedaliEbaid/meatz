@@ -36,5 +36,4 @@ dependencies:
   google_sign_in:
   flutter_bloc:
   dartz:
-
 ```
