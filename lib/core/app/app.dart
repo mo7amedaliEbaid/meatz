@@ -30,9 +30,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRouter.onGenerateRoute,
             initialRoute: AppRouter.splash,
-            theme: ThemeData(
-              fontFamily: AppStrings.fontFamily
-            ),
+            theme: ThemeData(fontFamily: AppStrings.fontFamily),
           );
         },
       ),
