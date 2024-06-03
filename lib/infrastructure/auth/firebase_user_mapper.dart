@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
-import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:meatz/domain/user.dart';
 import '../../domain/auth/value_objects.dart';
 
 extension FirebaseUserDomainX on firebase.User {
@@ -10,4 +9,3 @@ extension FirebaseUserDomainX on firebase.User {
     );
   }
 }
-
