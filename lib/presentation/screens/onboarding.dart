@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meatz/configs/app_dimensions.dart';
-import 'package:meatz/configs/app_typography.dart';
 import 'package:meatz/configs/configs.dart';
-import 'package:meatz/configs/space.dart';
 import 'package:meatz/core/constants/assets.dart';
 
 import '../../core/localization/widgets/translated_text.dart';
