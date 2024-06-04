@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../../application/application.dart';
+import '../../presentation/screens/home.dart';
 import '../core.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
               GlobalCupertinoLocalizations.delegate,
               AppLocalization.delegate,
             ],
-            supportedLocales: const [
+           home: CategoryScreen(),
+           /* supportedLocales: const [
               Locale('en', 'US'),
               Locale('ar', 'EG'),
             ],
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
             initialRoute: AppRouter.splash,
             theme: ThemeData(
               fontFamily: AppStrings.fontFamily
-            ),
+            ),*/
           );
         },
       ),

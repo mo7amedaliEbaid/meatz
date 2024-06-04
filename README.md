@@ -1,16 +1,29 @@
 # meatz
 
-A new Flutter project.
+```css
 
-## Getting Started
+lib/
+├── data/
+│   ├── data_sources/
+│   │   └── category_remote_data_source.dart
+│   ├── models/
+│   │   └── category_model.dart
+│   ├── repositories/
+│       └── category_repository_impl.dart
+├── domain/
+│   ├── entities/
+│   │   └── category.dart
+│   ├── repositories/
+│   │   └── category_repository.dart
+│   └── use_cases/
+│       └── get_categories.dart
+├── presentation/
+│   ├── blocs/
+│   │   └── category_bloc.dart
+│   ├── screens/
+│   │   └── category_screen.dart
+│   └── widgets/
+│       └── category_widget.dart
+└── main.dart
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
