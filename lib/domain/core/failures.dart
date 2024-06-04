@@ -1,62 +1,34 @@
 // failures.dart
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-
 @immutable
 abstract class ValueFailure<T> {
-  const ValueFailure();
+  final T failedValue;
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+  const ValueFailure(this.failedValue);
 
-    return other is ValueFailure<T>;
+  String map({
+    required String  invalidEmail,
+    required String  shortPassword,
+  }) {
+    if (this is InvalidEmail<T>) {
+      return invalidEmail;
+    } else if (this is ShortPassword<T>) {
+      return shortPassword;
+    } else {
+      throw UnimplementedError();
+    }
   }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() => 'ValueFailure<$T>';
 }
 
 class InvalidEmail<T> extends ValueFailure<T> {
-  final String failedValue;
-
-  const InvalidEmail({required this.failedValue});
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is InvalidEmail<T> && other.failedValue == failedValue;
-  }
-
-  @override
-  int get hashCode => failedValue.hashCode;
-
-  @override
-  String toString() => 'InvalidEmail(failedValue: $failedValue)';
+  const InvalidEmail({required T failedValue}) : super(failedValue);
 }
 
 class ShortPassword<T> extends ValueFailure<T> {
-  final String failedValue;
-
-  const ShortPassword({required this.failedValue});
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is ShortPassword<T> && other.failedValue == failedValue;
-  }
-
-  @override
-  int get hashCode => failedValue.hashCode;
-
-  @override
-  String toString() => 'ShortPassword(failedValue: $failedValue)';
+  const ShortPassword({required T failedValue}) : super(failedValue);
 }
+
 
 class UnexpectedValueError extends Error {
   final ValueFailure valueFailure;
