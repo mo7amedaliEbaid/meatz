@@ -10,7 +10,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../domain/use_case/category.dart';
 
-class CategoryScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +49,6 @@ class CategoryScreen extends StatelessWidget {
   }
 }
 // lib/presentation/widgets/category_widget.dart
-
 
 class CategoryWidget extends StatelessWidget {
   final Category category;

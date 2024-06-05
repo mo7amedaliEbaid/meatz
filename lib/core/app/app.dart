@@ -11,21 +11,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return /*BlocProvider(
       create: (context) => LocaleCubit(const Locale("ar")),
       child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (context, state) {
-          return MaterialApp(
-            title: 'Flutter Demo',
-            locale: state.locale,
-            localizationsDelegates: const [
+          return*/
+        MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: AppRouter.splash,
+      theme: ThemeData(
+        fontFamily: AppStrings.fontFamily,
+      ),
+      // locale: state.locale,
+      /*      localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
               AppLocalization.delegate,
-            ],
-           home: CategoryScreen(),
-           /* supportedLocales: const [
+            ],*/
+      // home: CategoryScreen(),
+      /* supportedLocales: const [
               Locale('en', 'US'),
               Locale('ar', 'EG'),
             ],
@@ -35,9 +42,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               fontFamily: AppStrings.fontFamily
             ),*/
-          );
-        },
-      ),
     );
+    /*},
+      ),
+    );*/
   }
 }
