@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meatz/domain/auth/i_auth_facade.dart';
+import 'package:meatz/presentation/screens/categories.dart';
 
 import '../../application/application.dart';
 import '../../infrastructure/auth/auth_facade.dart';
@@ -40,8 +41,9 @@ class MyApp extends StatelessWidget {
               Locale('ar', 'EG'),
             ],
             debugShowCheckedModeBanner: false,
-            onGenerateRoute: AppRouter.onGenerateRoute,
-            initialRoute: AppRouter.splash,
+           /* onGenerateRoute: AppRouter.onGenerateRoute,
+            initialRoute: AppRouter.splash,*/
+            home: const CategoryPage(),
             theme: ThemeData(fontFamily: AppStrings.fontFamily),
           );
         },
