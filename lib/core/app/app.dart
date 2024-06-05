@@ -7,7 +7,9 @@ import 'package:meatz/domain/auth/i_auth_facade.dart';
 import 'package:meatz/presentation/screens/categories.dart';
 
 import '../../application/application.dart';
+import '../../application/blocs/category/category.dart';
 import '../../infrastructure/auth/auth_facade.dart';
+import '../../infrastructure/category/category_repo.dart';
 import '../core.dart';
 
 class MyApp extends StatelessWidget {
@@ -24,6 +26,10 @@ class MyApp extends StatelessWidget {
           create: (context) => SignInFormBloc(
               FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn())),
         ),
+      /*  BlocProvider(
+          create: (context) => CategoryBloc(context.read<ICategoryRepository>())
+            ,
+        ),*/
       ],
       child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (context, state) {
@@ -41,7 +47,7 @@ class MyApp extends StatelessWidget {
               Locale('ar', 'EG'),
             ],
             debugShowCheckedModeBanner: false,
-           /* onGenerateRoute: AppRouter.onGenerateRoute,
+            /* onGenerateRoute: AppRouter.onGenerateRoute,
             initialRoute: AppRouter.splash,*/
             home: const CategoryPage(),
             theme: ThemeData(fontFamily: AppStrings.fontFamily),

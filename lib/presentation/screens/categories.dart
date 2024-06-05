@@ -1,13 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/blocs/category/category.dart';
 import '../../infrastructure/category/category_repo.dart';
+import '../../infrastructure/category/category_repo_impl.dart';
 
 
-class CategoryPage extends StatelessWidget {
+class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
 
+  @override
+  State<CategoryPage> createState() => _CategoryPageState();
+}
+
+class _CategoryPageState extends State<CategoryPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +27,7 @@ class CategoryPage extends StatelessWidget {
         title: const Text('Categories'),
       ),
       body: BlocProvider(
-        create: (context) => CategoryBloc(context.read<ICategoryRepository>())
+        create: (context) => CategoryBloc(CategoryRepository(FirebaseFirestore.instance))
           ..add(GetCategories()),
         child: BlocBuilder<CategoryBloc, CategoryState>(
           builder: (context, state) {
