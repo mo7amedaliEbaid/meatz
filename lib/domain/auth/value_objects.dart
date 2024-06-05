@@ -1,14 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:uuid/uuid.dart';
 
 import '../core/failures.dart';
-import '../core/value_objects.dart';
 import '../core/value_validators.dart';
 
 
-import 'package:dartz/dartz.dart';
 
 
 class ValueObject<T> {
@@ -23,10 +20,10 @@ class ValueObject<T> {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ValueObject<T> && o.value == value;
+    return other is ValueObject<T> && other.value == value;
   }
 
   @override
@@ -55,7 +52,7 @@ class UniqueId {
   final String value;
 
   factory UniqueId() {
-    return UniqueId._(Uuid().v4());
+    return UniqueId._(const Uuid().v4());
   }
 
   factory UniqueId.fromUniqueString(String uniqueId) {

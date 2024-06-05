@@ -115,10 +115,18 @@ class SignInScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                /*   if (state.isSubmitting) ...[
-                  const SizedBox(height: 8),
-                  const LinearProgressIndicator(),
-                ],*/
+                BlocBuilder<SignInFormBloc, SignInFormState>(
+                    builder: (context, state) {
+                  if (state.isSubmitting) {
+                    return const Column(
+                      children: [
+                        SizedBox(height: 8),
+                        LinearProgressIndicator(),
+                      ],
+                    );
+                  }
+                  return const SizedBox.shrink();
+                })
               ],
             ),
           ),
