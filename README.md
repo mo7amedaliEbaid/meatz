@@ -1,5 +1,7 @@
 # meatz
 
+- Flutter app for meat products.
+
 ```css
 lib/
 ├── application/
