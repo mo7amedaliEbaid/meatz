@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/entities/category.dart';
 import '../../../domain/use_case/category.dart';
 
-
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   final GetCategories getCategories;
 
@@ -17,9 +16,15 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     emit(CategoryLoading());
     try {
       final categories = await getCategories();
-      emit(CategoryLoaded(categories: categories));
+      emit(
+        CategoryLoaded(categories: categories),
+      );
     } catch (e) {
-      emit(CategoryError(message: e.toString()));
+      emit(
+        CategoryError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 }
