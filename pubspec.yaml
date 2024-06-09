@@ -45,6 +45,8 @@ dependencies:
   shared_preferences:
   firebase_core:
   cloud_firestore:
+  firebase_auth:
+  google_sign_in:
 
 dev_dependencies:
   flutter_test:
