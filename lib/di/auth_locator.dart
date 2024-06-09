@@ -8,13 +8,13 @@ import '../domain/repositories/auth.dart';
 import '../domain/use_case/auth.dart';
 import 'locator.dart';
 
-void setupAuth(){
+void setupAuth() {
   locator.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   locator.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn());
 
   // Register data sources
   locator.registerLazySingleton<AuthRemoteDataSource>(
-        () => AuthRemoteDataSource(
+    () => AuthRemoteDataSource(
       firebaseAuth: locator(),
       googleSignIn: locator(),
     ),
@@ -22,7 +22,7 @@ void setupAuth(){
 
   // Register repositories
   locator.registerLazySingleton<AuthRepository>(
-        () => AuthRepositoryImpl(locator()),
+    () => AuthRepositoryImpl(locator()),
   );
 
   // Register use cases
@@ -34,7 +34,7 @@ void setupAuth(){
 
   // Register BLoC
   locator.registerFactory(
-        () => AuthBloc(
+    () => AuthBloc(
       signInWithEmailAndPassword: locator(),
       registerWithEmailAndPassword: locator(),
       signInWithGoogle: locator(),
