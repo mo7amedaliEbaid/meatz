@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:meatz/data/models/about.dart';
+import 'package:meatz/data/models/info.dart';
 
 abstract class AboutRemoteDataSource {
-  Future<AboutModel> getAbout();
+  Future<InfoModel> getAbout();
 }
 
 class AboutRemoteDataSourceImpl extends AboutRemoteDataSource {
@@ -13,10 +13,10 @@ class AboutRemoteDataSourceImpl extends AboutRemoteDataSource {
   });
 
   @override
-  Future<AboutModel> getAbout() async {
+  Future<InfoModel> getAbout() async {
     final snapshot = await firestore.collection('about').get();
     return snapshot.docs
-        .map((doc) => AboutModel.fromSnapshot(doc))
+        .map((doc) => InfoModel.fromSnapshot(doc))
         .toList()
         .first;
   }

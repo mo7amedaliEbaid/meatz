@@ -1,5 +1,5 @@
 import 'package:meatz/data/data_sources/about.dart';
-import 'package:meatz/domain/entities/about.dart';
+import 'package:meatz/domain/entities/info.dart';
 import 'package:meatz/domain/repositories/about.dart';
 
 class AboutRepositoryImpl extends AboutRepository {
@@ -10,7 +10,7 @@ class AboutRepositoryImpl extends AboutRepository {
   });
 
   @override
-  Future<About> getAbout() async {
+  Future<Info> getAbout() async {
     return await aboutRemoteDataSource.getAbout();
   }
 }

@@ -1,5 +1,5 @@
-import '../entities/about.dart';
+import '../entities/info.dart';
 
 abstract class AboutRepository {
-  Future<About> getAbout();
+  Future<Info> getAbout();
 }

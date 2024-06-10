@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meatz/domain/use_case/about.dart';
 
-import '../../../domain/entities/about.dart';
+import '../../../domain/entities/info.dart';
 
 abstract class AboutEvent {}
 
@@ -14,7 +14,7 @@ class AboutInitial extends AboutState {}
 class AboutLoading extends AboutState {}
 
 class AboutLoaded extends AboutState {
-  final About about;
+  final Info about;
 
   AboutLoaded({
     required this.about,
@@ -34,17 +34,25 @@ class AboutBloc extends Bloc<AboutEvent, AboutState> {
 
   AboutBloc({
     required this.getAbout,
-  }) : super(AboutInitial()) {
-    on<GetAboutEvent>(_onGetAbout);
+  }) : super(
+          AboutInitial(),
+        ) {
+    on<GetAboutEvent>(
+      _onGetAbout,
+    );
   }
 
   Future<void> _onGetAbout(
-      GetAboutEvent event, Emitter<AboutState> emit) async {
+    GetAboutEvent event,
+    Emitter<AboutState> emit,
+  ) async {
     emit(AboutLoading());
     try {
       final about = await getAbout();
       emit(
-        AboutLoaded(about: about),
+        AboutLoaded(
+          about: about,
+        ),
       );
     } catch (e) {
       emit(

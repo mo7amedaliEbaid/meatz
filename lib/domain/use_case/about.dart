@@ -1,6 +1,6 @@
 import 'package:meatz/domain/repositories/about.dart';
 
-import '../entities/about.dart';
+import '../entities/info.dart';
 
 class GetAbout {
   final AboutRepository aboutRepository;
@@ -9,7 +9,7 @@ class GetAbout {
     required this.aboutRepository,
   });
 
-  Future<About> call() async {
+  Future<Info> call() async {
     return await aboutRepository.getAbout();
   }
 }
