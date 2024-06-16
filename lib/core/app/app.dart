@@ -22,8 +22,11 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: AppRouter.onGenerateRoute,
       initialRoute: AppRouter.splash,
       theme: ThemeData(
-        fontFamily: AppStrings.fontFamily,
-      ),
+          fontFamily: AppStrings.fontFamily,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.deepRed,
+            centerTitle: true,
+          )),
       // locale: state.locale,
       /*      localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,

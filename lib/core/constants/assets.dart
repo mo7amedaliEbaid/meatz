@@ -4,6 +4,7 @@ final class AppAssets {
   static const String facebook = "assets/svg/facebook.svg";
   static const String google = "assets/svg/google.svg";
   static const String lock = "assets/svg/lock.svg";
+ // static const String appBarLogo = "assets/svg/app_bar_logo.svg";
 
   //png
   static const String splash = "assets/png/splash.png";

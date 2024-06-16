@@ -1,6 +1,10 @@
 // lib/presentation/screens/category_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:meatz/configs/app_dimensions.dart';
+import 'package:meatz/core/constants/assets.dart';
+import 'package:meatz/core/constants/colors.dart';
 import '../../application/blocs/category/category.dart';
 import '../../data/data_sources/category.dart';
 import '../../data/repositories/category.dart';
@@ -16,7 +20,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Categories')),
+      appBar: AppBar(
+        toolbarHeight: AppDimensions.normalize(25),
+        title: Image.asset(
+          AppAssets.logo,
+          height: AppDimensions.normalize(15),
+        ),
+      ),
       body: BlocProvider(
         create: (context) => CategoryBloc(
           getCategories: GetCategories(
@@ -30,7 +40,7 @@ class HomeScreen extends StatelessWidget {
         child: BlocBuilder<CategoryBloc, CategoryState>(
           builder: (context, state) {
             if (state is CategoryLoading) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (state is CategoryLoaded) {
               return ListView.builder(
                 itemCount: state.categories.length,
