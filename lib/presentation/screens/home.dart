@@ -1,18 +1,14 @@
 // lib/presentation/screens/category_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:meatz/configs/app_dimensions.dart';
-import 'package:meatz/core/constants/assets.dart';
-import 'package:meatz/core/constants/colors.dart';
-import '../../application/blocs/category/category.dart';
-import '../../data/data_sources/category.dart';
-import '../../data/repositories/category.dart';
-import '../../domain/entities/category.dart';
+import 'package:meatz/configs/configs.dart';
+import 'package:meatz/core/core.dart';
+import '../../application/application.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../di/locator.dart';
+import '../../domain/domain.dart';
 
-import '../../domain/use_case/category.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,15 +24,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider(
-        create: (context) => CategoryBloc(
-          getCategories: GetCategories(
-            CategoryRepositoryImpl(
-              remoteDataSource: CategoryRemoteDataSourceImpl(
-                firestore: FirebaseFirestore.instance,
-              ),
-            ),
+        create: (context) => locator<CategoryBloc>()
+          ..add(
+            GetCategoriesEvent(),
           ),
-        )..add(GetCategoriesEvent()),
         child: BlocBuilder<CategoryBloc, CategoryState>(
           builder: (context, state) {
             if (state is CategoryLoading) {
