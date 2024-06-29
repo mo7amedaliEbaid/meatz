@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "891969447422",
+    "project_id": "meatz-b7635",
+    "storage_bucket": "meatz-b7635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891969447422:android:62e90b6c4cb8acd6cc8caf",
+        "android_client_info": {
+          "package_name": "com.example.meatz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891969447422-st6poppi85mmubcp7lhigeud8pk97h1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEhCsE-Pso1mJCiDDX8bE-Hfvn-LlvJ8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891969447422-st6poppi85mmubcp7lhigeud8pk97h1t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "891969447422-8cptmqb8vlsl86m11pe908sptea86rdu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.meatz"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
