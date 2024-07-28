@@ -1,16 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-import '../application/blocs/auth/auth_bloc.dart';
-import '../data/data_sources/auth.dart';
-import '../data/repositories/auth.dart';
-import '../domain/repositories/auth.dart';
-import '../domain/use_case/auth.dart';
-import 'locator.dart';
+part of 'locator.dart';
 
 void setupAuth() {
-  locator.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
-  locator.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn());
 
   // Register data sources
   locator.registerLazySingleton<AuthRemoteDataSource>(

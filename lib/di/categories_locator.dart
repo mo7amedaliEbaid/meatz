@@ -1,15 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:meatz/application/blocs/category/category.dart';
-import 'package:meatz/domain/use_case/category.dart';
-
-import '../data/data_sources/category.dart';
-import '../data/repositories/category.dart';
-import '../domain/repositories/category.dart';
-import 'locator.dart';
+part of 'locator.dart';
 
 void setupCategories() {
-  locator.registerLazySingleton<FirebaseFirestore>(
-      () => FirebaseFirestore.instance);
   locator.registerLazySingleton<CategoryRemoteDataSource>(
     () => CategoryRemoteDataSourceImpl(
       firestore: locator(),
@@ -23,7 +14,9 @@ void setupCategories() {
   );
 
   locator.registerLazySingleton<GetCategories>(
-    locator(),
+    () => GetCategories(
+      locator(),
+    ),
   );
 
   locator.registerFactory(
