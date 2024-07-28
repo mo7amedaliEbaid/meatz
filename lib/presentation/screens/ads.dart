@@ -20,22 +20,10 @@ class AdsScreen extends StatelessWidget {
             AppAssets.ads,
             fit: BoxFit.fitHeight,
           ),
-          Positioned(
-            bottom: AppDimensions.normalize(8),
-            right: AppDimensions.normalize(5),
-            child: customElevatedButton(
-              width: AppDimensions.normalize(45),
-              height: AppDimensions.normalize(20),
-              color: AppColors.deepRed,
-              borderRadius: AppDimensions.normalize(10),
-              textKey: 'skip',
-              textStyle: AppText.h3!.copyWith(
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.of(context).pushNamed(AppRouter.onboarding);
-              },
-            ),
+          positionedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRouter.onboarding);
+            },
           )
         ],
       ),
