@@ -1,6 +1,5 @@
-// lib/data/data_sources/category_remote_data_source.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/category.dart';
+import '../data.dart';
 
 abstract class CategoryRemoteDataSource {
   Future<List<CategoryModel>> getCategories();

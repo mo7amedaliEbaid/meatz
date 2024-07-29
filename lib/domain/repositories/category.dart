@@ -1,5 +1,4 @@
-// lib/domain/repositories/category_repository.dart
-import '../entities/category.dart';
+import '../domain.dart';
 
 abstract class CategoryRepository {
   Future<List<Category>> getCategories();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/localization/models/language.dart';
+import '../../../core/core.dart';
 
 part 'locale_state.dart';
 
